@@ -1,3 +1,5 @@
+import style from '../styles/searchBar.module.css'
+
 function SearchBar(props) {
     const handleSubmit = async (e) => {
         e.preventDefault(); 
@@ -5,18 +7,16 @@ function SearchBar(props) {
         
         if(!confirmed) return;
 
-        console.log('Aguarde um instante')
-        
         const searchVideo = e.target[0].value
         const searchBody = await fetch('/api/search/'+searchVideo)
         const searchResult = await searchBody.json()
         props.setSearchResult(searchResult.items)
     }
 
-    return <div>
+    return <div className={style.container}>
         <form method="post" onSubmit={(e)=>{handleSubmit(e)}}>
-            <input type="text"/>
-            <input type="submit"/>
+                <input type="text" placeholder="Procure um video aqui"/>
+                <input type="submit" value="Pesquisar"/>
         </form>
     </div>
 }
