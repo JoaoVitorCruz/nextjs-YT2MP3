@@ -23,7 +23,6 @@ export default function Home() {
 
       {searchResults && searchResults.map((val, key)=>{
         if (val.type !== 'video'|| val.duration == null) return;
-        console.log(val)
 
         return <VideoSelector
         title={val.title} url={val.url} key={key}

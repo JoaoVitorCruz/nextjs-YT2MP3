@@ -7,7 +7,15 @@ function SearchBar(props) {
         
         if(!confirmed) return;
 
-        const searchVideo = e.target[0].value
+        let query
+
+        if(e.target[0].value == '') {
+            query = 'vazio existencial'
+        } else {
+            query = e.target[0].value
+        }
+
+        const searchVideo = query
         const searchBody = await fetch('/api/search/'+searchVideo)
         const searchResult = await searchBody.json()
         props.setSearchResult(searchResult.items)
