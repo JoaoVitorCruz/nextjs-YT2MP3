@@ -2,9 +2,9 @@ import Head from 'next/head'
 import SearchBar from '../components/searchBar'
 import VideoSelector from '../components/videoSelector'
 import { useState } from 'react'
-import GitHubIcon from '@material-ui/icons/GitHub'
-import WhatsappIcon from '@material-ui/icons/Whatsapp'
-import InstagramIcon from '@material-ui/icons/Instagram'
+// import GitHubIcon from '@material-ui/icons/GitHub'
+// import WhatsappIcon from '@material-ui/icons/Whatsapp'
+// import InstagramIcon from '@material-ui/icons/Instagram'
 
 export default function Home() {
   let [searchResults, setSearchResult] = useState(false)
@@ -57,15 +57,15 @@ export default function Home() {
 
           <div className="flex justify-center mt-2">
             <a href="https://www.github.com/JoaoVitorCruz">
-              <GitHubIcon className="bg-gray-900 cursor-pointer" />
+              {/* <GitHubIcon className="bg-gray-900 cursor-pointer" /> */}
             </a>
             {'   '}
             <a href="https://wa.link/84h3sj">
-              <WhatsappIcon className=" bg-gray-100 text-green-600 mx-3 cursor-pointer"/>
+              {/* <WhatsappIcon className=" bg-gray-100 text-green-600 mx-3 cursor-pointer"/> */}
             </a>
             {'   '}
             <a href="https://www.instagram.com/proxy_167/">
-              <InstagramIcon className="bg-gradient-to-r from-yellow-400 via-red-500 cursor-pointer to-pink-500"/>
+              {/* <InstagramIcon className="bg-gradient-to-r from-yellow-400 via-red-500 cursor-pointer to-pink-500"/> */}
             </a>
           </div>
             
