@@ -2,9 +2,14 @@ import Head from 'next/head'
 import SearchBar from '../components/searchBar'
 import VideoSelector from '../components/videoSelector'
 import { useState } from 'react'
+<<<<<<< HEAD
 import GitHubIcon from '@material-ui/icons/GitHub'
 import WhatsappIcon from '@material-ui/icons/Whatsapp'
 import InstagramIcon from '@material-ui/icons/Instagram'
+=======
+import style from '../styles/home.module.css'
+
+>>>>>>> parent of d7202d7 (atualização no layout e tailwind)
 
 export default function Home() {
   let [searchResults, setSearchResult] = useState(false)
@@ -16,6 +21,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+<<<<<<< HEAD
         <header className="flex justify-center bg-gray-800">
           <h2 className="text-gray-100 font-bold text-3xl py-3 ">YT⬇ | Bem vindo!</h2>
         </header>
@@ -72,6 +78,21 @@ export default function Home() {
             
           </div>
         </footer>
+=======
+      <header className={style.header}>
+        <h2>YT⬇ | Bem vindo!</h2>
+      </header>
+
+      <SearchBar setSearchResult={setSearchResult}/>
+
+      {searchResults && searchResults.map((val, key)=>{
+        if (val.type !== 'video'|| val.duration == null) return;
+
+        return <VideoSelector
+        title={val.title} url={val.url} key={key}
+        author={val.author} duration={val.duration} thumbnail={val.bestThumbnail.url}/>
+      })}
+>>>>>>> parent of d7202d7 (atualização no layout e tailwind)
       
     </div>
   )
