@@ -20,41 +20,37 @@ return (
 		<h2 className="text-gray-100 font-bold text-3xl py-3 ">YT⬇ | Bem vindo!</h2>
 	</header>
 
-	<section className="flex justify-center my-5 ">
-		<div className="w-full md:w-9/12 lg:w-6/12 xl:w-5/12">
+	<section className="flex justify-center mt-5 ">
+		<div className="w-full mx-3 md:w-9/12 lg:w-6/12 xl:w-5/12">
 			<SearchBar setSearchResult={setSearchResult} />
 		</div>
 	</section>
 
 	{!searchResults && [true].map((val, key)=>{
-	return (<div key={key} className="bg-red absolute inset-1/4">
+	return (<div key={key} className="absolute mt-5 w-full">
 
-
-		<div className="text-white text-xl text-center border-4 border-gray-700 border-dashed">
-			<div className="p-6">
-				<p className="text-yellow-500 font-black text-2xl text-center">AVISO:</p>
-				<p> os arquivos de <span className="animate-pulse text-pink-300">audio</span> fornecidos pelo ytDown
-					estão no formato <code className="font-black text-red-400">.webm</code></p>
-				<p>Estamos trabalhando em um conversor rapido e pratico para o formato<code
-						className="font-black text-green-400">.mp3</code></p>
+		<div className="text-white text-xl text-center md:w-3/12 mx-auto border-4 border-gray-700 border-dashed">
+			<div className="p-1">
+				<p className="text-yellow-500 font-black text-xl text-center">AVISO:</p>
+				<p> os arquivos de <span className="animate-pulse text-pink-300">audio</span> fornecidos pelo ytDown estão no formato <code className="font-black text-red-400">.webm</code></p>
+				<p>Estamos trabalhando em um conversor rapido e pratico para o formato<code className="font-black text-green-400">.mp3</code></p>
 			</div>
 		</div>
 
 	</div>)
 	})}
 
-	<section className="mt-5 mx-1 rounded-lg shadow-md">
+	<section className="mt-5 mx-3 rounded-lg shadow-md">
 		{searchResults && searchResults.map((val, key)=>{
 		if (val.type !== 'video'|| val.duration == null) return;
 
-		return
-		<VideoSelector title={val.title} url={val.url} key={key} author={val.author} duration={val.duration}
+		return <VideoSelector title={val.title} url={val.url} key={key} author={val.author} duration={val.duration}
 			thumbnail={val.bestThumbnail.url} />
 		})}
 	</section>
 
-	<footer className="flex items-end rounded-t-lg h-screen -mt-36">
-		<div className="bg-gray-800 py-7 -mt-16 w-full text-center text-gray-100 text-xl font-bold">
+	<footer className="flex items-end h-screen -mt-36">
+		<div className="bg-gray-800 py-2 -mt-16 w-full text-center text-gray-100 text-xl font-bold">
 			<p className="animate-bounce">João Vitor Cruz</p>
 
 			<div className="flex justify-center mt-2">
