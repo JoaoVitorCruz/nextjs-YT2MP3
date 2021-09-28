@@ -2,77 +2,83 @@ import Head from 'next/head'
 import SearchBar from '../components/searchBar'
 import VideoSelector from '../components/videoSelector'
 import { useState } from 'react'
-// import GitHubIcon from '@material-ui/icons/GitHub'
-// import WhatsappIcon from '@material-ui/icons/Whatsapp'
-// import InstagramIcon from '@material-ui/icons/Instagram'
+import Image from 'next/image'
+
 
 export default function Home() {
-  let [searchResults, setSearchResult] = useState(false)
+let [searchResults, setSearchResult] = useState(false)
 
-  return (
-    <div>
-      <Head>
-        <title>YT⬇</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+return (
+<div>
 
-        <header className="flex justify-center bg-gray-800">
-          <h2 className="text-gray-100 font-bold text-3xl py-3 ">YT⬇ | Bem vindo!</h2>
-        </header>
+	<Head>
+		<title>YT⬇</title>
+		<link rel="icon" href="/favicon.ico" />
+	</Head>
 
-        <section className="flex justify-center my-5 ">
-          <div className="w-full md:w-9/12 lg:w-6/12 xl:w-5/12">
-            <SearchBar setSearchResult={setSearchResult}/>
-          </div>
-        </section>
+	<header className="flex justify-center bg-gray-800">
+		<h2 className="text-gray-100 font-bold text-3xl py-3 ">YT⬇ | Bem vindo!</h2>
+	</header>
 
-        {!searchResults && [true].map((val, key)=>{
-          return (<div key={key} className="bg-red absolute inset-1/4">
+	<section className="flex justify-center my-5 ">
+		<div className="w-full md:w-9/12 lg:w-6/12 xl:w-5/12">
+			<SearchBar setSearchResult={setSearchResult} />
+		</div>
+	</section>
 
-            
-            <div className="text-white text-xl text-center border-4 border-gray-700 border-dashed">
-              <div className="p-6">
-                <p className="text-yellow-500 font-black text-2xl text-center">AVISO:</p>  
-                <p> os arquivos de <span className="animate-pulse text-pink-300">audio</span> fornecidos pelo ytDown estão no formato <code className="font-black text-red-400">.webm</code></p>
-                <p>Estamos trabalhando em um conversor rapido e pratico para o formato<code className="font-black text-green-400">.mp3</code></p>
-              </div>
-            </div>
-          
-          </div>)
-        })}
+	{!searchResults && [true].map((val, key)=>{
+	return (<div key={key} className="bg-red absolute inset-1/4">
 
-        <section className="mt-5 mx-1 rounded-lg shadow-md">
-          {searchResults && searchResults.map((val, key)=>{
-            if (val.type !== 'video'|| val.duration == null) return;
 
-            return <VideoSelector
-            title={val.title} url={val.url} key={key}
-            author={val.author} duration={val.duration} thumbnail={val.bestThumbnail.url}/>
-          })}
-        </section>
+		<div className="text-white text-xl text-center border-4 border-gray-700 border-dashed">
+			<div className="p-6">
+				<p className="text-yellow-500 font-black text-2xl text-center">AVISO:</p>
+				<p> os arquivos de <span className="animate-pulse text-pink-300">audio</span> fornecidos pelo ytDown
+					estão no formato <code className="font-black text-red-400">.webm</code></p>
+				<p>Estamos trabalhando em um conversor rapido e pratico para o formato<code
+						className="font-black text-green-400">.mp3</code></p>
+			</div>
+		</div>
 
-        <footer className="flex items-end rounded-t-lg h-screen -mt-36">
-          <div className="bg-gray-800 py-7 -mt-16 w-full text-center text-gray-100 text-xl font-bold">
-            <p className="animate-bounce">João Vitor Cruz</p>
+	</div>)
+	})}
 
-          <div className="flex justify-center mt-2">
-            <a href="https://www.github.com/JoaoVitorCruz">
-              {/* <GitHubIcon className="bg-gray-900 cursor-pointer" /> */}
-            </a>
-            {'   '}
-            <a href="https://wa.link/84h3sj">
-              {/* <WhatsappIcon className=" bg-gray-100 text-green-600 mx-3 cursor-pointer"/> */}
-            </a>
-            {'   '}
-            <a href="https://www.instagram.com/proxy_167/">
-              {/* <InstagramIcon className="bg-gradient-to-r from-yellow-400 via-red-500 cursor-pointer to-pink-500"/> */}
-            </a>
-          </div>
-            
-          </div>
-        </footer>
-      
-    </div>
-  )
+	<section className="mt-5 mx-1 rounded-lg shadow-md">
+		{searchResults && searchResults.map((val, key)=>{
+		if (val.type !== 'video'|| val.duration == null) return;
+
+		return
+		<VideoSelector title={val.title} url={val.url} key={key} author={val.author} duration={val.duration}
+			thumbnail={val.bestThumbnail.url} />
+		})}
+	</section>
+
+	<footer className="flex items-end rounded-t-lg h-screen -mt-36">
+		<div className="bg-gray-800 py-7 -mt-16 w-full text-center text-gray-100 text-xl font-bold">
+			<p className="animate-bounce">João Vitor Cruz</p>
+
+			<div className="flex justify-center mt-2">
+				<div className="flex justify-around w-3/12 md:w-2/12">
+
+					<a href="https://www.github.com/JoaoVitorCruz">
+						<Image src="/whatsapp.svg" className="cursor-pointer" height="35" width="35" />
+					</a>
+
+					<a href="https://wa.link/84h3sj">
+						<Image src="/github.svg" className="cursor-pointer mx-5 bg-gray-100 rounded-full" height="35"
+							width="35" />
+					</a>
+
+					<a href="https://www.instagram.com/proxy_167/">
+						<Image src="/instagram.svg" className="cursor-pointer rounded-xl" height="35" width="35" />
+					</a>
+
+				</div>
+			</div>
+
+		</div>
+	</footer>
+
+</div>
+)
 }
-
