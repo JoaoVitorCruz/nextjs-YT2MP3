@@ -1,5 +1,3 @@
-import style from '../styles/videoSelector.module.css'
-
 function VideoSelector(props) {
     const title = props.title
     const url = props.url
@@ -14,24 +12,36 @@ function VideoSelector(props) {
         window.open(`/api/download/${type}/${finalURL}`)
     }
 
-    return <div className={style.video_container}>
-        <div className={style.thumb_container}>
-            <img src={thumb} alt="Thumbnail" />
-            <span>{duration}</span>
-            <div className={style.clear}></div>
+    return <div className="flex rounded-lg overflow-hidden w-full bg-gray-800 text-white mb-5">
+        <div className="w-4/12 my-auto">
+            <img src={thumb} className="w-full " alt="Thumbnail" />
+            <div className="text-center py-1 px-3 bg-gray-700 opacity-1 rounded-full mx-auto w-1/2 text-white my-2">{duration}</div>
         </div>
         
-        <div className={style.info}>
-            <h3 className={style.title}>{title}</h3>
-            <h4 className={style.author}>{author}</h4>
-            
-            <div className={style.downloadOptions}>
-                <label>Baixar: </label>
-                <button onClick={()=>{download(url, title, 'audio')}}>Music</button>
-                <button onClick={()=>{download(url, title, 'video')}}>Video</button>
-            </div>
+        <div className="w-8/12">
+        
+        <div className="mx-2">
+            <h3 className="font-bold mb-1">{title}</h3>
+            <h4>{author}</h4>
         </div>
-      
+            
+            <div className="my-2">
+                <label>Baixar: </label>
+                <button 
+                className="px-4 py-1 border rounded-full shadow-md shadow color-gray-100 mx-1 hover:bg-gray-100 hover:text-gray-800 transition"
+                onClick={()=>{download(url, title, 'audio')}}>
+                    Música
+                </button>
+                
+                <button 
+                className="px-4 py-1 border rounded-full shadow-md shadow hover:bg-gray-100 hover:text-gray-800 transition color-gray-100"
+                onClick={()=>{download(url, title, 'video')}}>
+                    video
+                </button>
+            </div>
+        
+        </div>
+
     </div>
 }
 
