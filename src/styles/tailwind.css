@@ -7,6 +7,19 @@ Document
 ========
 */
 
+
+
+.entrar{
+  animation-name: entrar; 
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+
+@keyframes entrar{
+  from{ opacity:0; }
+  to{ opacity:1; }
+}
+
 /**
 Use a better box model (opinionated).
 */

@@ -12,9 +12,9 @@ function VideoSelector(props) {
         window.open(`/api/download/${type}/${finalURL}`)
     }
 
-    return <div className="flex rounded-lg overflow-hidden w-full bg-gray-800 text-white mb-5">
+    return <div className="flex entrar rounded-lg overflow-hidden w-full bg-gray-800 text-white md:mx-auto md:w-8/12 mb-5">
         <div className="w-4/12 my-auto">
-            <img src={thumb} className="w-full " alt="Thumbnail" />
+            <img src={thumb} className="w-full transition rounded-lg" alt="Thumbnail" />
             <div className="text-center py-1 px-3 bg-gray-700 opacity-1 rounded-full mx-auto w-1/2 text-white my-2">{duration}</div>
         </div>
         
@@ -25,7 +25,7 @@ function VideoSelector(props) {
             <h4>{author}</h4>
         </div>
             
-            <div className="my-2">
+            <div className="my-2 ml-2">
                 <label>Baixar: </label>
                 <button 
                 className="px-4 py-1 border rounded-full shadow-md shadow color-gray-100 mx-1 hover:bg-gray-100 hover:text-gray-800 transition"
